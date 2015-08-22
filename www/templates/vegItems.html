@@ -1,7 +1,7 @@
 <ion-view view-title="Veg Items">
   <ion-content>
     <ion-list>
-      <ion-item class="item-thumbnail-left" ng-repeat="items in vegItems">
+      <ion-item class="item-thumbnail-left" ng-repeat="items in vegItems" ng-click="showMoreInfo(items.id)">
         <img src="{{items.imgUrl}}">
 	    <h2>{{items.name}}</h2>
 	    <p>{{items.description}}</p>
@@ -12,10 +12,10 @@
     </ion-list>
   </ion-content>
   <div class="sideDescription">
-    <img src="">
     <dl>
       <dt></dt>
-      <dl>Description</dl>
+      <img src="{{chosenItem.picture}}" class='itemImg'>
+      <dl>{{chosenItem.description}}</dl>
     </dl>
   </div>
 </ion-view>
