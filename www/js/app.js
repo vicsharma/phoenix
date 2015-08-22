@@ -40,11 +40,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'veg.items'])
     }
   })
 
-  .state('app.non-veg-items', {
-    url: "/nonveg",
+  .state('app.order-summary', {
+    url: "/order-summary",
     views: {
       'menuContent': {
-        templateUrl: "templates/nonVegItems.html"
+        templateUrl: "templates/orderSummary.html"
         ,controller : 'vegItemsController'
       }
     }
