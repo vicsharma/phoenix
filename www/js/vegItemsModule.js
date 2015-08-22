@@ -16,6 +16,7 @@ vegItems.controller('vegItemsController', function($scope, getMenuItems, getCart
 	}
 
 	$scope.addItem = function(item) {
+		$scope.$root.cartIcon = "ion-ios-cart";
 		var clonedItem;
 		if (orderedItems[item.id]) {	
 			orderedItems[item.id].quantity = orderedItems[item.id].quantity + 1;
