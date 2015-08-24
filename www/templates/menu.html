@@ -10,8 +10,11 @@
       </ion-nav-buttons>
 
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear {{cartIcon}}">
-        </button>
+        <!-- 3 ways to navigate plz suggest which one is best-->
+        <button class="button button-icon button-clear {{cartIcon}}" ng-click="navigate()"></button> 
+        <a class="button button-icon button-clear {{cartIcon}}" href="#/app/order-summary"></a>
+        <a class="button button-icon button-clear {{cartIcon}}" ui-sref="app.order-summary"></a>
+
       </ion-nav-buttons>
 
     </ion-nav-bar>
