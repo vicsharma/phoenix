@@ -1,9 +1,8 @@
 var OrderService = angular.module('orderService', []);
-
-OrderService.factory('getCart', function($http) {
+OrderService.factory('orderDetails', function($http) {
 	var orderDetails = {};
 
-	return function() {
+
 		return orderDetails;
-	}
+	
 });

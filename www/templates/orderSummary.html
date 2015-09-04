@@ -1,12 +1,10 @@
 <ion-view view-title="Order Summary">
   <ion-content>
     <ion-list>
-      <ion-item class="item-thumbnail-left" ng-repeat="items in orderSummary">
-        <img src="{{items.imgUrl}}">
-	    <h2>{{items.name}}</h2>
-	    <button>
-	    	<i class="icon ion-plus-circled">Add QUantity</i>
-	    </button>
+      <ion-item class="item-thumbnail-left" ng-repeat="order in orderDetails">
+        <img src="{{order.imgUrl}}">
+        <h2>Name : {{order.name}}</h2>
+        <h2>Quantity : {{order.quantity}}</h2>
       </ion-item>
     </ion-list>
   </ion-content>
