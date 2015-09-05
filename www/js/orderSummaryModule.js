@@ -5,7 +5,7 @@ orderSummary.controller('orderSummaryController', function($scope, orderDetails)
     order.quantity = order.quantity + 1;
   }
   $scope.deleteItem = function (order) {
-  	if(order.quantity <= 0){
+  	if(order.quantity <= 1 ){
   		delete orderDetails[order.id];
   	}
     order.quantity = order.quantity - 1;
