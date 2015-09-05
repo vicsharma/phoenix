@@ -2,6 +2,7 @@ var vegItems = angular.module('veg.items', ['vegMenuService', 'orderService']);
 vegItems.controller('vegItemsController', function($scope, getMenuItems, orderDetails) {
 	
 	var orderedItems = orderDetails;
+
 	getMenuItems().then(function(response) {
 		$scope.vegItems = response.data;
 		$scope.itemsMap = {};
@@ -25,6 +26,17 @@ vegItems.controller('vegItemsController', function($scope, getMenuItems, orderDe
 			clonedItem = cloneObject(item);
 			clonedItem.quantity = 1;
 			orderedItems[clonedItem.id] = clonedItem;
+		}
+	}
+
+	$scope.deleteItem = function(item) {
+		var clonedItem;
+		var orderedItem = orderedItems[item.id];
+		if (orderedItem) {
+			orderedItem.quantity = orderedItem.quantity - 1;
+			if (orderedItem.quantity <= 0) {
+				delete orderedItems[item.id];
+			}
 		}
 	}
 

@@ -5,11 +5,8 @@
         <img src="{{items.imgUrl}}">
 	    <h2>{{items.name}}</h2>
 	    <p>{{items.description}}</p>
-	    <button ng-click="addItem(items)">
-	    	<i class="icon ion-plus-circled">Add Item</i>
-	    </button>
-        <a class="ion-thumbsup"></a>
-        <a class="ion-thumbsdown"></a>
+        <a class="icon ion-plus-circled" ng-click="addItem(items)"></a>
+        <a class="icon ion-minus-circled" ng-click="deleteItem(items)"></a>
       </ion-item>
     </ion-list>
   </ion-content>
