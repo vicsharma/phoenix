@@ -5,6 +5,12 @@
         <img src="{{order.imgUrl}}">
         <h2>Name : {{order.name}}</h2>
         <h2>Quantity : {{order.quantity}}</h2>
+        <button ng-click="addItem(order)">
+  	    	<i class="icon ion-plus-circled">Add Quantity</i>
+  	    </button>
+        <button ng-click="deleteItem(order)">
+  	    	<i class="icon ion-plus-circled">Delete Quantity</i>
+  	    </button>
       </ion-item>
     </ion-list>
   </ion-content>
