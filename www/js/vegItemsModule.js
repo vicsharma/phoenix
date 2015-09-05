@@ -30,7 +30,6 @@ vegItems.controller('vegItemsController', function($scope, getMenuItems, orderDe
 	}
 
 	$scope.deleteItem = function(item) {
-		var clonedItem;
 		var orderedItem = orderedItems[item.id];
 		if (orderedItem) {
 			orderedItem.quantity = orderedItem.quantity - 1;
