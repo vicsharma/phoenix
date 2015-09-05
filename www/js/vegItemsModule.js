@@ -1,6 +1,7 @@
 var vegItems = angular.module('veg.items', ['vegMenuService', 'orderService']);
-vegItems.controller('vegItemsController', function($scope, getMenuItems, getCart) {
-	var orderedItems = getCart();
+vegItems.controller('vegItemsController', function($scope, getMenuItems, orderDetails) {
+	
+	var orderedItems = orderDetails;
 	getMenuItems().then(function(response) {
 		$scope.vegItems = response.data;
 		$scope.itemsMap = {};
@@ -18,7 +19,7 @@ vegItems.controller('vegItemsController', function($scope, getMenuItems, getCart
 	$scope.addItem = function(item) {
 		$scope.$root.cartIcon = "ion-ios-cart";
 		var clonedItem;
-		if (orderedItems[item.id]) {	
+		if (orderedItems[item.id]) {
 			orderedItems[item.id].quantity = orderedItems[item.id].quantity + 1;
 		} else {
 			clonedItem = cloneObject(item);
