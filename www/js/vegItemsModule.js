@@ -1,9 +1,7 @@
 var vegItems = angular.module('veg.items', ['vegMenuService', 'orderService']);
-vegItems.controller('vegItemsController', function($scope, getMenuItems, orderDetails) {
-	
-	var orderedItems = orderDetails;
+vegItems.controller('vegItemsController', function($scope, MenuService, OrderService) {
 
-	getMenuItems().then(function(response) {
+	MenuService.getMenu().then(function(response) {
 		$scope.vegItems = response.data;
 		$scope.itemsMap = {};
 		for (item in $scope.vegItems) {
@@ -19,27 +17,10 @@ vegItems.controller('vegItemsController', function($scope, getMenuItems, orderDe
 
 	$scope.addItem = function(item) {
 		$scope.$root.cartIcon = "ion-ios-cart";
-		var clonedItem;
-		if (orderedItems[item.id]) {
-			orderedItems[item.id].quantity = orderedItems[item.id].quantity + 1;
-		} else {
-			clonedItem = cloneObject(item);
-			clonedItem.quantity = 1;
-			orderedItems[clonedItem.id] = clonedItem;
-		}
+		OrderService.addItemToOrder(item);
 	}
 
 	$scope.deleteItem = function(item) {
-		var orderedItem = orderedItems[item.id];
-		if (orderedItem) {
-			orderedItem.quantity = orderedItem.quantity - 1;
-			if (orderedItem.quantity <= 0) {
-				delete orderedItems[item.id];
-			}
-		}
+		OrderService.deleteItemFromOrder(item);
 	}
-
-	cloneObject = function (obj) {
-		return JSON.parse(JSON.stringify(obj));
-	}
-})
+});
