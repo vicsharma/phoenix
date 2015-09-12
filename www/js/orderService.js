@@ -22,7 +22,6 @@ OrderService.factory('OrderService', function($http) {
 		},
 
 		isOrderEmpty : function () {
-			console.log(Object.keys(orderDetails));
 			return Object.keys(orderDetails).length == 0;
 		},
 
