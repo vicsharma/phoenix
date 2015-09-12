@@ -5,9 +5,7 @@
         <img src="{{items.imgUrl}}">
 	    <h2>{{items.name}}</h2>
 	    <p>{{items.description}}</p>
-        <a class="icon ion-plus-circled" ng-click="addItem(items)"></a>
-        <a class="icon ion-minus-circled" ng-click="deleteItem(items)"></a>
-        <h2>{{items.price}}</h2>
+      <h2>Rs. {{items.price}} <a class="icon ion-plus-circled" ng-click="addItem(items)"></a> </h2>  
       </ion-item>
     </ion-list>
   </ion-content>
