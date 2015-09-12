@@ -1,6 +1,6 @@
 <ion-view view-title="Order Summary">
   <ion-content>
-    <a ng-if="orderEmpty()">
+    <ion-header-bar ng-if="orderEmpty()">
       Nothing in the cart, please head <a href="#/app/veg">back</a> to menu to order.
     </ion-header-bar>
     <ion-list ng-if="orderDetails">
