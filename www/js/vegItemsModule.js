@@ -19,8 +19,4 @@ vegItems.controller('vegItemsController', function($scope, MenuService, OrderSer
 		$scope.$root.cartIcon = "ion-ios-cart";
 		OrderService.addItemToOrder(item);
 	}
-
-	$scope.deleteItem = function(item) {
-		OrderService.deleteItemFromOrder(item);
-	}
 });
