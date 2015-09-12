@@ -17,4 +17,7 @@ orderSummary.controller('orderSummaryController', function($scope, $state, order
     order.quantity = order.quantity - 1;
   }
 
+ $scope.getFinalPrice=function(order){
+  return order.price*order.quantity;
+ }
 });
