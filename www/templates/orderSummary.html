@@ -1,7 +1,7 @@
 <ion-view view-title="Order Summary">
   <ion-content>
     <ion-header-bar ng-if="orderEmpty()">
-      Nothing in the cart, please head <a href="#/app/veg">back</a> to menu to order.
+      Nothing in the cart, please head &nbsp;<a href="#/app/veg">back</a> &nbsp;to menu to order.
     </ion-header-bar>
     <ion-list ng-if="orderDetails">
       <ion-item class="item-thumbnail-left" ng-repeat="order in orderDetails">
@@ -16,5 +16,6 @@
         </div>
       </ion-item>
     </ion-list>
+                    <h3 align=right>SumTotal : Rs. {{getSumTotal(orderDetails)}}</h3>
   </ion-content>
 </ion-view>

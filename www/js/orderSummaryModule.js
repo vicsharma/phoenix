@@ -23,4 +23,12 @@ orderSummary.controller('orderSummaryController', function($scope, $state, Order
     $scope.getFinalPrice=function(item){
         return item.price * item.quantity;
     }
+
+    $scope.getSumTotal=function(item){
+        var sumTotal=0;
+        Object.keys(item).forEach(function (element) {
+            sumTotal=sumTotal+(item[element].price*item[element].quantity);
+        });
+        return sumTotal;
+    }
 });
