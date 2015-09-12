@@ -1,15 +1,16 @@
 <ion-view view-title="Order Summary">
   <ion-content>
-    <ion-list>
+    <ion-list ng-if="orderDetails">
       <ion-item class="item-thumbnail-left" ng-repeat="order in orderDetails">
         <img src="{{order.imgUrl}}">
         <h2>Name : {{order.name}}</h2>
-        <h2><a class="icon ion-plus-circled" ng-click="addItem(order)"></a>{{order.quantity}}
-        	<a class="icon ion-minus-circled" ng-click="deleteItem(order)"></a></h2>
-          <h2>Rs. {{order.price}}</h2>
-        <span style="float:right">
-          </h2> Rs. {{getFinalPrice(order)}}</h2>
-          </span>
+        <div>
+          <a class="icon ion-plus-circled" ng-click="addItem(order)"></a>
+          <span class="order-quantity">{{order.quantity}}</span>
+          <a class="icon ion-minus-circled" ng-click="deleteItem(order)"></a>
+          <h2>{{order.price}}</h2>
+          <h2 align=right>Rs. {{getFinalPrice(order)}}</h2>
+        </div>
       </ion-item>
     </ion-list>
   </ion-content>
