@@ -36,3 +36,8 @@
 .ion-minus-circled {
 	font-size: 30px;
 }
+
+.order-quantity {
+	position: relative;
+	top: -5px;
+}
