@@ -24,11 +24,23 @@ orderSummary.controller('orderSummaryController', function($scope, $state, Order
         return item.price * item.quantity;
     }
 
+
     $scope.getSumTotal=function(item){
         var sumTotal=0;
         Object.keys(item).forEach(function (element) {
             sumTotal=sumTotal+(item[element].price*item[element].quantity);
         });
-        return sumTotal;
+        var billObj = {
+            sumTotal : Math.round(sumTotal * 100) / 100
+            ,tax : getTaxes(sumTotal)
+            ,finalPrice : sumTotal+getTaxes(sumTotal)
+        };
+        return billObj;    
+    }
+    getTaxes=function(sumTotal){
+        var serviceCharge=0.10*sumTotal; 
+        var salersTax=.40*sumTotal*.1236;
+        var vat=.14*sumTotal;
+        return Math.round((serviceCharge+salersTax+vat) *100)/100;
     }
 });

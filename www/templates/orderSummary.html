@@ -16,6 +16,15 @@
         </div>
       </ion-item>
     </ion-list>
-                    <h3 align=right>SumTotal : Rs. {{getSumTotal(orderDetails)}}</h3>
-  </ion-content>
+      <h4 align=right>
+        Net Price : Rs. {{getSumTotal(orderDetails).sumTotal}}
+      </h4>
+      <h4 align=right>
+        TaxCollected : Rs. {{getSumTotal(orderDetails).tax}}
+      </h4>
+      <h4 align=right>
+        Total Price : Rs. {{getSumTotal(orderDetails).finalPrice}}
+      </h4>
+<!--      <a href="#/app/kitchen-summary"> Kitchen   </a>        
+ -->  </ion-content>
 </ion-view>
