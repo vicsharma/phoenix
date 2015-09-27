@@ -1,19 +1,18 @@
 <ion-view view-title="Veg Items">
   <ion-content>
+    <div class="item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model='searchname'>
+      </label>
+    </div>
     <ion-list>
-      <ion-item class="item-thumbnail-left" ng-repeat="items in vegItems" ng-click="showMoreInfo(items.id)">
+      <ion-item class="item-thumbnail-left" collection-repeat="items in vegItems | filter:searchname">
         <img src="{{items.imgUrl}}">
 	    <h2>{{items.name}}</h2>
 	    <p>{{items.description}}</p>
-      <h2>Rs. {{items.price}} <a class="icon ion-plus-circled" ng-click="addItem(items)"></a> </h2>  
+      <h2>Rs. {{items.price}} <a class="icon ion-plus-circled" ng-click="addItem(items)"></a> </h2>
       </ion-item>
     </ion-list>
   </ion-content>
-  <div class="sideDescription">
-    <dl class="sideDl">
-      <dt>{{chosenItem.name}}</dt>
-      <img src="{{chosenItem.picture}}" class='itemImg'>
-      <dl class="itemDescription">{{chosenItem.description}}</dl>
-    </dl>
-  </div>
 </ion-view>
