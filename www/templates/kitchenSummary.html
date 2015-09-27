@@ -1,0 +1,15 @@
+<ion-view view-title="Kitchen Summary">
+  <ion-content>
+   <ion-header-bar ng-if="orderEmpty()">
+      Nothing in the cart, please head &nbsp;<a href="#/app/veg">back</a> &nbsp;to menu to order.
+    </ion-header-bar>
+    <h1>Awsome you have successfully placed your order !</h1>
+  <div class="list list-inset" ng-if="orderDetails">
+      <ion-item class="item" ng-repeat="order in orderDetails">
+        <div>
+        <h2> {{order.name}} *  {{order.quantity}}</h2>
+        </div>
+      </ion-item>
+   </div>
+  </ion-content>
+</ion-view>

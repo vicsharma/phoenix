@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'veg.items', 'veg.orderSummary'])
+angular.module('starter', ['ionic', 'starter.controllers', 'veg.items', 'veg.orderSummary', 'veg.kitchenSummary'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -48,7 +48,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'veg.items', 'veg.ord
         ,controller : 'orderSummaryController'
       }
     }
-  });
+  })
+ .state('app.kitchen-summary', {
+    url: "/kitchen-summary",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/kitchenSummary.html"
+        ,controller : 'kitchenSummaryController'
+      }
+    }
+  })
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/veg');
 });
