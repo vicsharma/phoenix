@@ -3,7 +3,7 @@
     <ion-header-bar ng-if="orderEmpty()">
       Nothing in the cart, please head &nbsp;<a href="#/app/veg">back</a> &nbsp;to menu to order.
     </ion-header-bar>
-    <ion-list ng-if="orderDetails">
+    <ion-list type="card" ng-if="orderDetails">
       <ion-item class="item-thumbnail-left" ng-repeat="order in orderDetails">
         <img src="{{order.imgUrl}}">
         <h2>Name : {{order.name}}</h2>
@@ -25,8 +25,8 @@
       <h4 align=right>
         Total Price : Rs. {{getSumTotal(orderDetails).finalPrice}}
       </h4>
-<div style="text-align:center">
-     <a class="button button-balanced" href="#/app/kitchen-summary"> Send Order to KITCHEN </a>      
-     </div>  
+      <div class="kitchen-order-button" ng-if="orderNotEmpty()">
+        <a class="button button-balanced" href="#/app/kitchen-summary"> Send Order to KITCHEN </a>
+     </div>
   </ion-content>
 </ion-view>

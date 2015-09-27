@@ -6,8 +6,8 @@
         <input type="search" placeholder="Search" ng-model='searchname'>
       </label>
     </div>
-    <ion-list>
-      <ion-item class="item-thumbnail-left" collection-repeat="items in vegItems | filter:searchname">
+    <ion-list type="card">
+      <ion-item class="item-thumbnail-left" ng-repeat="items in vegItems | filter:searchname">
         <img src="{{items.imgUrl}}">
 	    <h2>{{items.name}}</h2>
 	    <p>{{items.description}}</p>

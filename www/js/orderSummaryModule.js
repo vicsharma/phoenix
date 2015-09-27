@@ -12,6 +12,10 @@ orderSummary.controller('orderSummaryController', function($scope, $state, Order
         return OrderService.isOrderEmpty();
     }
 
+    $scope.orderNotEmpty = function () {
+        return OrderService.isOrderNotEmpty();
+    }
+
     $scope.deleteItem = function (item) {
         OrderService.deleteItemFromOrder(item);
         if (OrderService.isOrderEmpty()) {
@@ -24,7 +28,6 @@ orderSummary.controller('orderSummaryController', function($scope, $state, Order
         return item.price * item.quantity;
     }
 
-
     $scope.getSumTotal=function(item){
         var sumTotal=0;
         Object.keys(item).forEach(function (element) {
@@ -35,10 +38,11 @@ orderSummary.controller('orderSummaryController', function($scope, $state, Order
             ,tax : getTaxes(sumTotal)
             ,finalPrice : sumTotal+getTaxes(sumTotal)
         };
-        return billObj;    
+        return billObj;
     }
-    getTaxes=function(sumTotal){
-        var serviceCharge=0.10*sumTotal; 
+
+    var getTaxes=function(sumTotal){
+        var serviceCharge=0.10*sumTotal;
         var salersTax=.40*sumTotal*.1236;
         var vat=.14*sumTotal;
         return Math.round((serviceCharge+salersTax+vat) *100)/100;

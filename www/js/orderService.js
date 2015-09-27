@@ -25,6 +25,10 @@ OrderService.factory('OrderService', function($http) {
 			return Object.keys(orderDetails).length == 0;
 		},
 
+		isOrderNotEmpty : function () {
+			return Object.keys(orderDetails).length > 0;
+		},
+
 		getOrderDetails : function () {
 			return orderDetails;
 		}
@@ -33,5 +37,5 @@ OrderService.factory('OrderService', function($http) {
 	function cloneObject (obj) {
 		return JSON.parse(JSON.stringify(obj));
 	}
-	
+
 });
