@@ -1,5 +1,5 @@
 var homeModule = angular.module('homeModule',['restaurantService', 'vegMenuService']);
-homeModule.controller('homeController', function($scope, $state, RestaurantService) {
+homeModule.controller('homeController', function($scope, $state, $window, RestaurantService) {
 
 	RestaurantService.getMenu().then(function(response) {
 		
@@ -10,6 +10,15 @@ homeModule.controller('homeController', function($scope, $state, RestaurantServi
   			$state.go('app.veg-items');
   		};
 
+  		$window.navigator.geolocation.getCurrentPosition(function(position) {
+  			var lat=position.coords.latitude;
+  			var lng=position.coords.longitude;
+  			
+  			$scope.$apply(function(){
+  				$scope.lat=lat;
+  				$scope.lng=lng;
+  			});
+  		});
 		/*
 		$scope.vegItems = response.data;
 		$scope.itemsMap = {};
