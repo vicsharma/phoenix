@@ -1,5 +1,5 @@
-var vegItems = angular.module('veg.items', ['vegMenuService', 'orderService']);
-vegItems.controller('vegItemsController', function($scope, MenuService, OrderService) {
+var vegItems = angular.module('veg.items', ['vegMenuService', 'orderService','session']);
+vegItems.controller('vegItemsController', function($scope, MenuService, OrderService, Session) {
 
 	MenuService.getMenu().then(function(response) {
 		$scope.vegItems = response.data;
@@ -19,4 +19,7 @@ vegItems.controller('vegItemsController', function($scope, MenuService, OrderSer
 		$scope.$root.cartIcon = "ion-ios-cart";
 		OrderService.addItemToOrder(item);
 	}
+
+	$scope.getResturantNameFromSession=Session.restaurantName;
+
 });

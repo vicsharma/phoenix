@@ -1,12 +1,12 @@
-var homeModule = angular.module('homeModule',['restaurantService', 'vegMenuService']);
-homeModule.controller('homeController', function($scope, $state, $window, RestaurantService) {
+var homeModule = angular.module('homeModule',['restaurantService', 'vegMenuService','session']);
+homeModule.controller('homeController', function($scope, $state, $window, RestaurantService,Session) {
 
 	RestaurantService.getMenu().then(function(response) {
 		
 		$scope.restaurants = response.data;
 
 		$scope.navigateToMenu=function(restaurant){
-			console.log(restaurant)
+			Session['restaurantName']=restaurant.name;
   			$state.go('app.veg-items');
   		};
 
