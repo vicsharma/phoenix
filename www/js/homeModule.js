@@ -1,7 +1,7 @@
 var homeModule = angular.module('homeModule',['restaurantService', 'vegMenuService']);
 homeModule.controller('homeController', function($scope, $state, RestaurantService) {
 
-	RestaurantService.getMenu().then(function(response) {
+	RestaurantService.getRestaurant().then(function(response) {
 		
 		$scope.restaurants = response.data;
 
