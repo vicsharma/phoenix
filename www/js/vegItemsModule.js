@@ -1,8 +1,8 @@
 var vegItems = angular.module('veg.items', ['vegMenuService', 'orderService','session']);
 vegItems.controller('vegItemsController', function($scope, MenuService, OrderService, Session) {
 
-	MenuService.getMenu().then(function(response) {
-		$scope.vegItems = response.data;
+	MenuService.getMenu(Session.restaurantName).then(function(menuJson) {
+		$scope.vegItems = menuJson;
 		$scope.itemsMap = {};
 		for (item in $scope.vegItems) {
 			var currentItem = $scope.vegItems[item];
