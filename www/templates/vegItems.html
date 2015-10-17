@@ -1,0 +1,19 @@
+<ion-view view-title="Veg Items">
+  <ion-content>
+  <font color="#00FF00" size="+1"><marquee>You are currently viewing {{getResturantNameFromSession}}'s menu</marquee></font>
+    <div class="item-input-inset">  
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model='searchname'>
+      </label>
+    </div>
+    <ion-list type="card">
+      <ion-item class="item-thumbnail-left" ng-repeat="items in vegItems | filter:searchname">
+        <img src="{{items.imgUrl}}">
+	    <h2>{{items.name}}</h2>
+	    <p>{{items.description}}</p>
+      <h2>Rs. {{items.price}} <a class="icon ion-plus-circled" ng-click="addItem(items)"></a> </h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

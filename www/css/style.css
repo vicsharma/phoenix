@@ -1,1 +1,47 @@
 /* Empty. Add your own CSS if you like */
+
+
+.sideDescription {
+	position: absolute;;
+	top: 45px;
+	right: 0px;
+	width: 300px;
+	height: 300px;
+	background-color: #D3D3D3;
+	overflow: scroll;
+}
+
+.itemImg {
+	width: 200px;
+	height: 200px;
+}
+
+.itemDescription {
+	text-transform: capitalize;
+}
+
+.sideDl {
+	padding: 12px 28px;
+}
+
+.ion-thumbsup {
+	font-size: 30px;
+}
+.ion-thumbsdown {
+	font-size: 30px;
+}
+.ion-plus-circled {
+	font-size: 30px;
+}
+.ion-minus-circled {
+	font-size: 30px;
+}
+
+.order-quantity {
+	position: relative;
+	top: -5px;
+}
+
+.kitchen-order-button {
+	text-align: center;
+}

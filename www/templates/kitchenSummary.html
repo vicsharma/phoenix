@@ -1,0 +1,17 @@
+<ion-view view-title="Kitchen Summary">
+  <ion-content>
+      <ion-list type="card">
+        <ion-item type="card" ng-if="orderEmpty()">
+          Nothing sent to the kitchen
+        </ion-item>
+        <ion-item type="card" ng-if="orderNotEmpty()">
+          <h1 class="title">Awesome you have successfully placed your order !!</h1>
+        </ion-item>
+        <ion-item class="item" ng-repeat="order in orderDetails">
+          <div>
+          <h2> {{order.name}} *  {{order.quantity}}</h2>
+          </div>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>
